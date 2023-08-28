@@ -19,16 +19,17 @@
         <div class="row mt-5 gy-3">
 
             @foreach ($items as $item)
-            <div class="col-sm my-3">
-                <div class="card h-100">
-                    <img src="{{ Storage::url($item->img) }}" class="card-img-top" alt="{{$item->img}}">
-                    <div class="card-body">
+            <div class="col-sm-3 my-3">
+                <div class="card h-100 d-flex flex-column">
+                    <img src="{{ Storage::url($item->img) }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;" alt="{{$item->img}}">
+                    <div class="card-body d-flex flex-column">
                         <h5 class="card-title">{{$item->name}}</h5>
                         <p class="card-text">Prix : {{$item->price}}€</p>
+                        <div class="flex-grow-1"></div>
                     </div>
                 </div>
             </div>
-            @endforeach
+        @endforeach
 
         </div>
     </div>

@@ -26,23 +26,31 @@
     {{-- Cards --}}
     <div class="container">
         <div class="row mt-5 gy-3">
-
             @foreach ($items as $item)
-            <div class="col-sm my-3">
-                <div class="card h-100">
-                    <img src="{{ Storage::url($item->img) }}" class="card-img-top" alt="{{$item->img}}">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$item->name}}</h5>
-                        <p class="card-text">Prix : {{$item->price}}€</p>
-                        <a href="{{url('admin/delete/' . $item->id)}}" class="btn btn-danger mr-2">Delete</a>
-                        <a href="{{url('admin/edit/' . $item->id)}}" class="btn btn-primary">Edit</a>
+                <div class="col-sm-3 my-3 flex-fill">
+                    <div class="card h-100 d-flex flex-column">
+                        <img src="{{ Storage::url($item->img) }}" class="card-img-top img-fluid" style="height: 200px; object-fit: cover;" alt="{{$item->img}}">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">{{$item->name}}</h5>
+                            <p class="card-text">Prix : {{$item->price}}€</p>
+                            <div class="flex-grow-1"></div>
+                        </div>
+                        <div class="card-footer d-flex justify-content-between">
+                            <a href="{{url('admin/delete/' . $item->id)}}" class="btn btn-danger ml-auto">Delete</a>
+                            <a href="{{url('admin/edit/' . $item->id)}}" class="btn btn-primary ml-auto">Edit</a>
+                        </div>
                     </div>
                 </div>
-            </div>
             @endforeach
-
         </div>
     </div>
+
+
+
+
+
+
+
 
 
 
